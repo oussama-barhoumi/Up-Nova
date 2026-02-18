@@ -1,23 +1,20 @@
-
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from './pages/home'
 import ContentAbout from './pages/about'
-
+import Login from './pages/auth/Login'
+import CreateAccount from './pages/auth/CreateAccount'
+import ForgotPassword from './pages/auth/ForgotPassword'
 
 function App() {
-
   return (
-    <>
-    
-
-      <Routes>
-        <h1>My Website</h1>
-        <Route path='/' element={<Home/>} />
-        <Route path='/about' element={<ContentAbout/>}/>
-      </Routes>
-      
-    
-    </>
+    <Routes>
+      <Route path='/' element={<Navigate to='/login' replace />} />
+      <Route path='/home' element={<Home />} />
+      <Route path='/about' element={<ContentAbout />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/create-account' element={<CreateAccount />} />
+      <Route path='/forgot-password' element={<ForgotPassword />} />
+    </Routes>
   )
 }
 export default App
